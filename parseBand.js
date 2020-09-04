@@ -8,7 +8,7 @@ var AllModel = require('./all.js');
 const uri = 'mongodb://212.109.221.239/da?retryWrites=true&w=majority';
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true});
 
-var URL = 'https://www.metal-archives.com/bands/Cypecore/3540276307';
+var URL = 'https://www.metal-archives.com/bands/Infant_Annihilator/3540458000';
 let result = {
   bio: '',
   discography: [],
@@ -30,7 +30,11 @@ needle.get(URL, function(err, res) {
   result.formedIn = infoLeft['3'].children[0].data;
   result.genre = infoRight['0'].children[0].data;
   result.lyricThemes = infoRight['1'].children[0].data;
-  result.label = infoRight['2'].children[0].children[0].data;
+  if (infoRight['2'].children[0].children !== undefined) {
+    result.label = infoRight['2'].children[0].children[0].data;
+  } else {
+    result.label = infoRight['2'].children[0].data;
+  }
   result.pictures.logo = $('#logo').attr('href');
   result.pictures.bandPic = $('#photo').attr('href');
 
