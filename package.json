@@ -1,0 +1,24 @@
+{
+  "name": "parse_ma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "parseAlbum": "node parseAlbum.js",
+    "parseBand": "node parseBand.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "iconv-lite": "^0.6.2",
+    "lodash": "^4.17.20",
+    "moment": "^2.27.0",
+    "mongoose": "^5.10.3",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "needle": "^2.5.2"
+  }
+}
