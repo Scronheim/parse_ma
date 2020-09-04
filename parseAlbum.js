@@ -9,7 +9,7 @@ const uri = 'mongodb://212.109.221.239/da?retryWrites=true&w=majority';
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true});
 
 var band = 'My Dying Bride';
-var URL = 'https://www.metal-archives.com/albums/My_Dying_Bride/Bloody_Hell/827159';
+var URL = 'https://www.metal-archives.com/albums/My_Dying_Bride/The_Ghost_of_Orion/818222';
 let result = {
   songs: []
 }
@@ -60,9 +60,9 @@ needle.get(URL, function(err, res){
     }
     result.songs.push(song)
   }
-  let duration = $('strong')['0'].children;
+  let duration = $('strong')['0'];
   if (duration !== undefined) {
-    result.duration = duration[0].data;
+    result.duration = duration.children[0].data;
   } else {
     result.duration = '00:00';
   }
