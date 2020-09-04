@@ -8,8 +8,8 @@ var AllModel = require('./all.js');
 const uri = 'mongodb://212.109.221.239/da?retryWrites=true&w=majority';
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true});
 
-var band = 'Cypecore';
-var URL = 'https://www.metal-archives.com/albums/Cypecore/The_Alliance/695463';
+var band = 'My Dying Bride';
+var URL = 'https://www.metal-archives.com/albums/My_Dying_Bride/Bloody_Hell/827159';
 let result = {
   songs: []
 }
@@ -60,7 +60,12 @@ needle.get(URL, function(err, res){
     }
     result.songs.push(song)
   }
-  result.duration = $('strong')['0'].children[0].data;
+  let duration = $('strong')['0'].children;
+  if (duration !== undefined) {
+    result.duration = duration[0].data;
+  } else {
+    result.duration = '00:00';
+  }
   result.cover = $('#cover')['0'].attribs.href;
 
   let names = [];

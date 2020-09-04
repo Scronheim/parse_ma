@@ -8,7 +8,7 @@ var AllModel = require('./all.js');
 const uri = 'mongodb://212.109.221.239/da?retryWrites=true&w=majority';
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: true});
 
-var URL = 'https://www.metal-archives.com/bands/Infant_Annihilator/3540458000';
+var URL = 'https://www.metal-archives.com/bands/My_Dying_Bride/151';
 let result = {
   bio: '',
   discography: [],
